@@ -454,7 +454,7 @@ let activeTab=null;async function renderApp(){const a=mockApi.sesionActual();if(
     </div>`,p=document.createElement("div");p.className="modal-backdrop",p.innerHTML=`
     <div class="modal" style="max-width:520px;">
       <div class="row" style="justify-content:space-between;align-items:center;">
-        <h3 style="margin:0;">\u{1F5FA}\uFE0F ${t.municipio}</h3>
+        <h3 style="margin:0;">\u{1F5FA}\uFE0F ${esc(t.municipio)}</h3>
         <span class="pill pill-vivo">${t.ganaderos.length} ganadero${t.ganaderos.length===1?"":"s"}</span>
       </div>
 
