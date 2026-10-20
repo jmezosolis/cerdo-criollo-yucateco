@@ -10,4 +10,4 @@ async function renderApp(){const e=mockApi.sesionActual();if(e){redirigirSeguro(
         </div>
       </div>
       ${bloqueAccesoCuenta()}
-    </div>`,bindAccesoCuenta()}esperarSesionInicial().then(renderApp);
+    </div>`,bindAccesoCuenta()}esperarSesionInicial().then(renderApp),"serviceWorker"in navigator&&window.addEventListener("load",()=>navigator.serviceWorker.register("./sw-inicio.js").catch(()=>{}));
