@@ -1,0 +1,1 @@
+try{const e=document.createElement("link");e.rel="preconnect",e.href=SUPABASE_URL,e.crossOrigin="anonymous",document.head.appendChild(e)}catch{}const supabaseClient=supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
