@@ -276,7 +276,7 @@ let currentScreen="inicio",animalesSubview="lista",reproduccionSubview="registra
       <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
         <h4 class="section-title" style="font-size:14px;margin-bottom:0;">Cada animal en el grupo (${o.total_animales})</h4>
         ${n.length?`
-        <button type="button" class="btn btn-ghost" id="btnOrdenRankingLote" style="padding:4px 10px;font-size:11px;margin-top:0;white-space:nowrap;">
+        <button type="button" class="btn btn-ghost" id="btnOrdenRankingLote" style="padding:8px 12px;font-size:13px;margin-top:0;white-space:nowrap;">
           ${loteOrdenRanking==="desc"?"\u2B07\uFE0F Mejores primero":"\u2B06\uFE0F Peores primero"}
         </button>`:""}
       </div>
@@ -294,28 +294,35 @@ let currentScreen="inicio",animalesSubview="lista",reproduccionSubview="registra
           <div style="text-align:right;font-weight:800;font-size:13px;${r.ganancia_diaria_kg==null?"color:var(--text-3);":r.ganancia_diaria_kg>=0?"color:#2E7D32;":"color:#C0392B;"}">
             ${r.ganancia_diaria_kg!=null?`${r.ganancia_diaria_kg} kg/d\xEDa`:"Sin datos"}
           </div>
-          <button type="button" class="btn btn-ghost" data-quitar-de-lote="${r.animal_id}" style="padding:4px 8px;font-size:11px;margin-top:0;margin-left:6px;">\u2715</button>
+          <button type="button" class="btn btn-ghost" data-quitar-de-lote="${r.animal_id}" aria-label="Quitar del lote" style="width:38px;height:38px;padding:0;font-size:15px;margin-top:0;margin-left:8px;flex-shrink:0;">\u2715</button>
         </div>`).join("")}
       </div>`:'<div class="empty">Todav\xEDa no hay ning\xFAn animal en este lote \u2014 s\xFAmalo desde la pesta\xF1a "Tareas".</div>'}
     </div>
     `:""}
 
     ${loteDetalleSubview==="tareas"?`
-    <div class="row scroll-row" style="margin-top:0;margin-bottom:14px;">
-      <button class="btn ${p?"btn-primary":"btn-ghost"}" type="button" data-lote-tarea="sumar" style="font-size:11px;padding:4px 10px;"><span class="btn-ico">\u2795</span> Sumar animal</button>
-      <button class="btn ${loteTareaAbierta==="reproduccion"?"btn-primary":"btn-ghost"}" type="button" data-lote-tarea="reproduccion" style="font-size:11px;padding:4px 10px;"><span class="btn-ico"><img src="../reproduccion.png" alt="" style="width:13px;height:13px;object-fit:contain;vertical-align:-2px;"></span> Reproducci\xF3n</button>
-      <button class="btn ${loteTareaAbierta==="sanidad"?"btn-primary":"btn-ghost"}" type="button" data-lote-tarea="sanidad" style="font-size:11px;padding:4px 10px;"><span class="btn-ico"><img src="../sanidad.png" alt="" style="width:13px;height:13px;object-fit:contain;vertical-align:-2px;"></span> Sanidad</button>
+    <div class="tareas-lote">
+      <button type="button" class="tarea-lote ${p?"activa":""}" data-lote-tarea="sumar">
+        <span class="tarea-ico">\u2795</span><b>Sumar animales</b><small>Escanear o elegir</small>
+      </button>
+      <button type="button" class="tarea-lote ${loteTareaAbierta==="reproduccion"?"activa":""}" data-lote-tarea="reproduccion">
+        <span class="tarea-ico"><img src="../reproduccion.png" alt=""></span><b>Reproducci\xF3n</b><small>A todo el grupo</small>
+      </button>
+      <button type="button" class="tarea-lote ${loteTareaAbierta==="sanidad"?"activa":""}" data-lote-tarea="sanidad">
+        <span class="tarea-ico"><img src="../sanidad.png" alt=""></span><b>Sanidad</b><small>Vacuna, desparasitaci\xF3n\u2026</small>
+      </button>
     </div>
+    ${!p&&!loteTareaAbierta?'<p class="small muted" style="text-align:center;margin:4px 0 0;">Elige una tarea para este lote.</p>':""}
 
     ${p?`
     <div class="card">
       <h4 class="section-title" style="font-size:14px;">Sumar animales</h4>
       <label>Escanea el chip de cada animal</label>
       <input id="loteEscaner" placeholder="Chip ya registrado o disponible \u2014 se agrega solo">
-      <button class="btn btn-ghost btn-block" type="button" id="btnAbrirSeleccionGuardados" style="margin-top:10px;">\u{1F4CB} Elegir de mis animales guardados</button>
+      <button class="btn btn-ghost btn-block" type="button" id="btnAbrirSeleccionGuardados" style="margin-top:10px;min-height:48px;font-size:15px;">\u{1F4CB} Elegir de mis animales guardados</button>
       <div class="row" style="gap:8px;margin-top:10px;">
-        <button class="btn btn-ghost" type="button" id="btnLoteAgregarMacho" style="flex:1;">\u2642\uFE0F Macho sin chip</button>
-        <button class="btn btn-ghost" type="button" id="btnLoteAgregarHembra" style="flex:1;">\u2640\uFE0F Hembra sin chip</button>
+        <button class="btn btn-ghost" type="button" id="btnLoteAgregarMacho" style="flex:1;min-height:48px;font-size:15px;">\u2642\uFE0F Macho sin chip</button>
+        <button class="btn btn-ghost" type="button" id="btnLoteAgregarHembra" style="flex:1;min-height:48px;font-size:15px;">\u2640\uFE0F Hembra sin chip</button>
       </div>
     </div>
 
