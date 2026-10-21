@@ -370,7 +370,7 @@ let activeTab=null;async function renderApp(){const a=mockApi.sesionActual();if(
         </select>
         <label>Municipio</label>
         ${selectMunicipios("municipio")}
-        <label>Rancho / empresa</label>
+        <label>Unidad de producci\xF3n / empresa</label>
         <input name="rancho_o_empresa" placeholder="Opcional">
         <button class="btn btn-primary btn-block" type="submit">Invitar</button>
       </form>
@@ -392,7 +392,7 @@ let activeTab=null;async function renderApp(){const a=mockApi.sesionActual();if(
       <div class="small muted" style="margin-top:6px;">
         \u{1F4E7} ${esc(a.correo)||"\u2014"} ${a.telefono?"\xB7 \u{1F4F1} "+esc(a.telefono):""}
       </div>
-      <div class="small muted">\u{1FAAA} ${a.total_chips} chip${a.total_chips===1?"":"s"} comprado${a.total_chips===1?"":"s"} \xB7 \u{1F3E1} ${a.total_ranchos} rancho${a.total_ranchos===1?"":"s"}</div>
+      <div class="small muted">\u{1FAAA} ${a.total_chips} chip${a.total_chips===1?"":"s"} comprado${a.total_chips===1?"":"s"} \xB7 \u{1F3E1} ${a.total_ranchos} unidad${a.total_ranchos===1?"":"es"} de producci\xF3n</div>
       <div class="row" style="margin-top:10px;">
         <select data-plan-select="${a.id}" style="flex:1;">
           <option value="al_dia" ${t?"selected":""}>Al d\xEDa</option>
@@ -468,7 +468,7 @@ let activeTab=null;async function renderApp(){const a=mockApi.sesionActual();if(
       ${t.ganaderos.length?`
       <div class="tabla-scroll" style="max-height:160px;">
         <table class="tabla-simple">
-          <thead><tr><th>Nombre</th><th>Rancho / empresa</th><th>Tel\xE9fono</th></tr></thead>
+          <thead><tr><th>Nombre</th><th>Unidad de producci\xF3n / empresa</th><th>Tel\xE9fono</th></tr></thead>
           <tbody>${t.ganaderos.map(e).join("")}</tbody>
         </table>
       </div>`:'<div class="empty">Sin ganaderos activos aqu\xED.</div>'}
