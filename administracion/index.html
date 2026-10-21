@@ -10,11 +10,11 @@
 <link rel="apple-touch-icon" href="./icon-192.png?v=3">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="GanaID Admin">
+<meta name="apple-mobile-web-app-title" content="Cerdo CY Admin">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="stylesheet" href="../shared/styles.css?v=122">
+<link rel="stylesheet" href="../shared/styles.css?v=123">
 <style>
-/* Bordes en azul marino (marca GanaID, la misma que usa el sitio) acá
+/* Bordes en azul marino (marca GanaID, la misma que usa el sitio) aquí
 — mismo grosor y mismo lugar que shared/styles.css, solo
 cambia el color del filo, pisando los tokens de borde de "theme-bw"
 nada más para esta página. */
@@ -34,12 +34,12 @@ que volver a subir para cambiar de actividad.
 El "position:sticky" solo puede flotar dentro de los límites de su
 propio contenedor — poner el sticky nada más en <nav class="tabs">
 no alcanza porque el <aside> que la envuelve mide apenas su alto real
-(~140px) y se termina enseguida. Por eso acá el sticky va en el
+(~140px) y se termina enseguida. Por eso aquí el sticky va en el
 <aside> completo: al ser más angosto que .main-content queda como
 franja fija, con fondo propio, ancla toda la fila de arriba (sesión +
 rol + pestañas) mientras se hace scroll por el contenido de abajo. En
 PC esto se apaga porque el <aside> ya es "sticky" con su propio look
-de panel (ver la regla de acá abajo). */
+de panel (ver la regla de aquí abajo). */
 @media (max-width:879px){
 body.theme-bw .sidebar{
 position:sticky; top:0; z-index:5;
@@ -56,7 +56,7 @@ el contenido (sticky, con su propio recuadro) sino una franja FIJA
 de punta a punta de la pantalla (position:fixed, ocupa todo el alto),
 y el contenido pasa a usar todo el ancho libre en vez de quedar en
 una columna angosta centrada. Blanco y negro, como el resto del panel
-de Administración — acá solo se copia la estructura de Ganadero, no su
+de Administración — aquí solo se copia la estructura de Ganadero, no su
 paleta dorada. */
 @media (min-width:880px){
 body.theme-bw .wrap.wrap-ancho{
@@ -79,12 +79,12 @@ max-width:1600px; margin:0 auto; padding:24px 32px 48px;
 <div id="app"></div>
 <script>const APP_SCOPE = 'administracion';</script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="../supabase-config.js?v=122"></script>
-<script src="../shared/supabase-client.js?v=122"></script>
-<script src="../shared/auth-supabase.js?v=122"></script>
-<script src="../shared/data.js?v=122"></script>
-<script src="../shared/ui-common.js?v=122"></script>
-<script src="../shared/view-generic.js?v=122"></script>
-<script src="../shared/instalar.js?v=122"></script>
+<script src="../supabase-config.js?v=123"></script>
+<script src="../shared/supabase-client.js?v=123"></script>
+<script src="../shared/auth-supabase.js?v=123"></script>
+<script src="../shared/data.js?v=123"></script>
+<script src="../shared/ui-common.js?v=123"></script>
+<script src="../shared/view-generic.js?v=123"></script>
+<script src="../shared/instalar.js?v=123"></script>
 </body>
 </html>
